@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product 5</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        .nav_bar {
+            position:absolute;
+            z-index:0;
+            left:0;
+            top:0;
+            width:100%
+        }
+
+        .nav_bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .nav_bar li {
+            float: left;
+        }
+
+        .nav_bar li h1 {
+            color: orange;
+            padding: 10px;
+        }
+
+        .nav_bar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            text-decoration: none;
+        }
+
+        p {
+            margin: 100px 0 0 0;
+            text-align: center;
+            border-style: solid;
+            border-color:#4CAF50;
+            padding: 10px;
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-family: Times;
+        }
+
+        img {
+            height: 450px;
+            width: 380px;
+            display: inline;
+
+        }
+
+        .info {
+            background-color: #4CAF50;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            border-radius: 10px;
+            padding: 10px 11px;
+            font-size: 20px;
+            position: absolute;
+            top:4.3%;
+            left: 85%;
+        }
+
+
+        h6  {
+
+            position: absolute;
+            color: orange;
+            top: 6%;
+            left: 80%;
+            margin: 0;
+            font-size: 20px;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+   <div class="nav_bar">
+        <ul>
+          <li><h1>FOOGLE</h1></li>
+          <li><a href="home.htm">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+   </div>
+
+
+    <div>
+        <p>
+            This piece is very fun and colorful, hense its name:  Snake. Effective
+            design of the shelves leaves little room for confusion. Its modern design allows the eyes to gravitate right to the contents held by the shelf. A grabbing
+            feature of the shelves is that you can make them your own: create your own size, and display color scheme. This allows you to further personilize
+            your live/work space. The shelves are fastened by using cables with wall mounts at the ends. The modular design fits any spaces and is great to keep
+            things simple.
+        </p>
+    </div>
+
+    <center>
+        <img src="./images/product_5_1.jpg" >
+        <img src="./images/product_5_2.jpg">
+        <img src="./images/product_5_2.jpg">
+    </center>
+
+    <form action="order.html" method="GET">
+        <h6>$50</h6><input type="hidden" name="product" value="5"></input>
+        <input type="submit" class="info" value="Purchase"/>
+    </form>
+
+</body>
+</html>
