@@ -36,10 +36,10 @@ CREATE TABLE `inf124grp06`.`orders` (
   CONSTRAINT `customer`
     FOREIGN KEY (`customer_id`)
     REFERENCES `inf124grp06`.`customers` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `inf124grp06`
     FOREIGN KEY (`inf124grp06_id`)
     REFERENCES `inf124grp06`.`items` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
