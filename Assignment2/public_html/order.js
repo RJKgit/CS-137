@@ -19,19 +19,19 @@ function isValidNumber(s) {
 function validateForm() {
     var validation = true;
     var msg = "Invalid field!";
-    var productID = document.forms["emailForm"]["productID"].value;
-    var productName = document.forms["emailForm"]["productName"].value;
+    var productID = document.forms.emailForm.productID.value;
+    var productName = document.forms.emailForm.productName.value;
 
-    var quantity = document.forms["emailForm"]["quantity"].value;
-    var firstName = document.forms["emailForm"]["first"].value;
-    var lastName = document.forms["emailForm"]["last"].value;
-    var email = document.forms["emailForm"]["email"].value;
-    var phoneNumber = document.forms["emailForm"]["phone"].value;
-    var creditCard = document.forms["emailForm"]["card"].value;
-    var street = document.forms["emailForm"]["street"].value;
-    var city = document.forms["emailForm"]["city"].value;
-    var state = document.forms["emailForm"]["state"].value;
-    var zip = document.forms["emailForm"]["zip"].value;
+    var quantity = document.forms.emailForm.quantity.value;
+    var firstName = document.forms.emailForm.first.value;
+    var lastName = document.forms.emailForm.last.value;
+    var email = document.forms.emailForm.email.value;
+    var phoneNumber = document.forms.emailForm.phone.value;
+    var creditCard = document.forms.emailForm.card.value;
+    var street = document.forms.emailForm.street.value;
+    var city = document.forms.emailForm.city.value;
+    var state = document.forms.emailForm.state.value;
+    var zip = document.forms.emailForm.zip.value;
 
     var total = document.getElementById("total");
     var errorLabel = document.getElementById("errorMsg");
