@@ -1,3 +1,4 @@
+CREATE SCHEMA `inf124grp06`;
 CREATE TABLE `inf124grp06`.`items` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
@@ -29,7 +30,7 @@ CREATE TABLE `inf124grp06`.`orders` (
   `total` INT NOT NULL,
   `inf124grp06_id` INT NOT NULL,
   `customer_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`orderNo`),
   INDEX `customer_idx` (`customer_id` ASC),
   INDEX `inf124grp06_idx` (`inf124grp06_id` ASC),
   CONSTRAINT `customer`
