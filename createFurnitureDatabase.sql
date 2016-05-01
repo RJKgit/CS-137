@@ -1,7 +1,5 @@
-CREATE SCHEMA `furniture` ;
-
-CREATE TABLE `furniture`.`items` (
-  `id` INT NOT NULL,
+CREATE TABLE `inf124grp06`.`items` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(800) NULL,
   `material` VARCHAR(100) NULL,
@@ -11,8 +9,8 @@ CREATE TABLE `furniture`.`items` (
   `image3_url` VARCHAR(200) NULL,
   PRIMARY KEY (`id`));
   
-CREATE TABLE `furniture`.`customers` (
-  `id` INT NOT NULL,
+CREATE TABLE `inf124grp06`.`customers` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
@@ -24,23 +22,23 @@ CREATE TABLE `furniture`.`customers` (
   `cc_number` INT NOT NULL,
   PRIMARY KEY (`id`));
   
-CREATE TABLE `furniture`.`orders` (
-  `orderNo` INT NOT NULL,
+CREATE TABLE `inf124grp06`.`orders` (
+  `orderNo` INT NOT NULL AUTO_INCREMENT,
   `quantity` INT NOT NULL,
   `shipping_method` VARCHAR(45) NOT NULL,
   `total` INT NOT NULL,
-  `furniture_id` INT NOT NULL,
+  `inf124grp06_id` INT NOT NULL,
   `customer_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `customer_idx` (`customer_id` ASC),
-  INDEX `furniture_idx` (`furniture_id` ASC),
+  INDEX `inf124grp06_idx` (`inf124grp06_id` ASC),
   CONSTRAINT `customer`
     FOREIGN KEY (`customer_id`)
-    REFERENCES `furniture`.`customers` (`id`)
+    REFERENCES `inf124grp06`.`customers` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `furniture`
-    FOREIGN KEY (`furniture_id`)
-    REFERENCES `furniture`.`items` (`id`)
+  CONSTRAINT `inf124grp06`
+    FOREIGN KEY (`inf124grp06_id`)
+    REFERENCES `inf124grp06`.`items` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
