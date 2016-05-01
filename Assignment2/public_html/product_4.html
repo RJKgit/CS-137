@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product 4</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        .nav_bar {
+            position:absolute;
+            z-index:0;
+            left:0;
+            top:0;
+            width:100%
+        }
+
+        .nav_bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .nav_bar li {
+            float: left;
+        }
+
+        .nav_bar li h1 {
+            color: orange;
+            padding: 10px;
+        }
+
+        .nav_bar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            text-decoration: none;
+        }
+
+        p {
+            margin: 100px 0 0 0;
+            text-align: center;
+            border-style: solid;
+            border-color:#4CAF50;
+            padding: 10px;
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-family: Times;
+        }
+
+        img {
+            height: 500px;
+            width: 480px;
+            display: inline;
+
+        }
+
+        .info {
+            background-color: #4CAF50;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            border-radius: 10px;
+            padding: 10px 11px;
+            font-size: 20px;
+            position: absolute;
+            top:4.3%;
+            left: 85%;
+        }
+
+
+        h6  {
+
+            position: absolute;
+            color: orange;
+            top: 6%;
+            left: 80%;
+            margin: 0;
+            font-size: 20px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+   <div class="nav_bar">
+        <ul>
+          <li><h1>FOOGLE</h1></li>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+   </div>
+
+
+    <div>
+        <p>
+            The Valentino Bench, is an item which brings a cheerful vibe to the collection with its five cushions of different colors. Slim wooden legs add elegance,
+            making the project easily adaptable to various modern needs. The item display a simple, yet sturdy structure, with high precision craftsmanship.
+        </p>
+    </div>
+
+    <center>
+        <img src="./images/product_4_1.jpg" >
+        <img src="./images/product_4_2.jpg">
+    </center>
+
+    <form action="order.html" method="GET">
+        <h6>$300</h6><input type="hidden" name="product" value="4"></input>
+        <input type="submit" class="info" value="Purchase"/>
+    </form>
+
+</body>
+</html>

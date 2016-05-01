@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Process Order</title>
+    <style type="text/css">
+            input {
+                    padding: 5px;
+                    margin: 5px;
+            }
+            form {
+                    margin-top: 100px;
+                    border: ridge;
+                    border-color: #4CAF50;
+                    padding: 20px;
+
+            }
+            .nav_bar {
+
+                        position:absolute;
+                        z-index:0;
+                        left:0;
+                        top:0;
+                        width:100%
+                }
+
+                .nav_bar ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    overflow: auto;
+                    background-color: #333;
+                }
+
+                .nav_bar li {
+                    float: left;
+                }
+
+                .nav_bar li h1 {
+                    color: orange;
+                    padding: 10px;
+                }
+
+                .nav_bar li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 40px 20px;
+                    text-decoration: none;
+                }
+
+                 .nav_bar a:hover:not(.active) {
+                    background-color: #111;
+                }
+
+    </style>
+    <script src="order.js"></script>
+</head>
+
+<body>
+	<div class="nav_bar">
+	            <ul>
+	              <li><h1>FOOGLE</h1></li>
+	              <li><a  href="home.html">Home</a></li>
+	              <li><a href="products.html">Products</a></li>
+	              <li><a href="about.html">About Us</a></li>
+	            </ul>
+       	 </div>
+    <form name="emailForm" onSubmit="return validateForm()" method="POST">
+            <fieldset>
+                <legend>Product Information</legend>
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td></td>    
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td><input type="number" name="quantity" min="0" autofocus required/></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Personal Information</legend>
+                <table>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" name="first" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" name="last" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="email" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td><input type="tel" name="phone" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Credit Card Number</td>
+                        <td><input type="text" name="card" maxLength="16" placeholder="16 digits" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Street Address</td>
+                        <td><input type = "text" name="street" required/></td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td><input type = "text" name="city" required/></td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><input type = "text" name="state" maxlength="2" placeholder="eg. 'CA'" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Zip Code</td>
+                        <td><input type = "text" name="zip" maxlength="5" required/></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Shipping Information</legend>
+                <table>
+                    <tr>
+                        <td>Shipping Method</td>
+                        <td>
+                            <input type="radio" name="ship" value="overnight"/>Overnight ($99.99)<br/>
+                            <input type="radio" name="ship" value="twoday"/>2-Day ($74.99)<br/>
+                            <input type="radio" name="ship" value= "standard" checked/>Standard ($24.99)<br/>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset><br/>
+            <div id="total">TOTAL: </div><br/>
+            <label id="errorMsg" style="display: none; color: red;"></label>
+            <input type="submit" value="Process Order"/>
+	</form>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
