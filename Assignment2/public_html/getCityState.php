@@ -1,28 +1,27 @@
 <?php
-echo "<pre>\n";
-require_once "pdo.php";
-try {
-    
- $zip;//parameter coming from the onblur action of order.html form
- $city;
- $state ;
-    
-$stmt = $pdo->prepare("SELECT city,state FROM locations WHERE zip = :zipcode");
-$query->bindParam(':zipcode', $zip);//First parameter of the method is name of the parameters, second is the value we want to replace with
-$query-execute();
+//getCityStates.zip
+//get the form value from the "zip" wiget, looks up the
+//city and state for that zip code, and prints it for the form
 
-//Using the fetch() method will return ONE result from the query
-$city= $fetch['city'];
-$state=$fetch['state'];
+$cityState = array( "81611" => "Aspen, Colorado",
+                    "81411" => "Bedrock, Colorado", 
+                    "80908" => "Black Forest, Colorado",
+                    "80310" => "Boulder, Colorado", 
+                    "81127" => "Chimney Rock,Colorado", 
+                    "80901" => "Colorado Springs, Colorado",
+                    "81223" => "Cotopaxi, Colorado", 
+                    "80201" => "Denver, Colorado",
+                    "81657" => "Vail, Colorado",
+                    "80435" => "Keystone, Colorado",
+                    "80536" => "Virginia Dale, Colorado",
+    );
 
+header ("Content-Type: text/plain");
 
-
-//The PDO::FETCH_ASSOC mode instructs the fetch() method to return a result set as an array indexed by column name.
-//$stmt->setFetchMode(PDO::FETCH_ASSOC);
-//$zip = $stmt->fetchAll();
-
-}catch (PDOException $pe) {
-    die("Could not connect to the database $dbname :" . $pe->getMessage());
+$zip = $_GET["zip"];
+if (array_key_exists($zip,$cityState)){
+ print $cityState[$zip];
+} else {
+ print " , ";
 }
-
-echo "</pre>\n";?>
+?>
