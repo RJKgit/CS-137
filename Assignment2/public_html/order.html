@@ -66,7 +66,7 @@
 	              <li><a href="about.html">About Us</a></li>
 	            </ul>
        	 </div>
-    <form name="emailForm" action="order.html" onSubmit="return validateForm()" method="POST">
+    <form action="home.html" name="emailForm" onsubmit="return(validateForm());" method="POST">
             <fieldset>
                 <legend>Product Information</legend>
                 <table>
@@ -84,7 +84,7 @@
                     </tr>
                     <tr>
                         <td>Quantity</td>
-                        <td><input type="number" name="quantity" min="0" autofocus required/></td>
+                        <td><input type="number" name="quantity" min="0" autofocus/></td>
                     </tr>
                 </table>
             </fieldset>
@@ -93,39 +93,39 @@
                 <table>
                     <tr>
                         <td>First Name</td>
-                        <td><input type="text" name="first" required/></td>
+                        <td><input type="text" name="first"/></td>
                     </tr>
                     <tr>
                         <td>Last Name</td>
-                        <td><input type="text" name="last" required/></td>
+                        <td><input type="text" name="last"/></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="email" name="email" required/></td>
+                        <td><input type="email" name="email"/></td>
                     </tr>
                     <tr>
                         <td>Phone Number</td>
-                        <td><input type="tel" name="phone" required/></td>
+                        <td><input type="text" name="phone"/></td>
                     </tr>
                     <tr>
                         <td>Credit Card Number</td>
-                        <td><input type="text" name="card" maxLength="16" placeholder="16 digits" required/></td>
+                        <td><input type="text" name="card" maxLength="16" placeholder="16 digits"/></td>
                     </tr>
                     <tr>
                         <td>Street Address</td>
-                        <td><input type = "text" name="street" required/></td>
+                        <td><input type = "text" name="street"/></td>
                     </tr>
                     <tr>
                         <td>City</td>
-                        <td><input type = "text" name="city" required/></td>
+                        <td><input type = "text" name="city"/></td>
                     </tr>
                     <tr>
                         <td>State</td>
-                        <td><input type = "text" name="state" maxlength="2" placeholder="eg. 'CA'" required/></td>
+                        <td><input type = "text" name="state" maxlength="2" placeholder="eg. 'CA'"/></td>
                     </tr>
                     <tr>
                         <td>Zip Code</td>
-                        <td><input type = "text" name="zip" maxlength="5" required/></td>
+                        <td><input type = "text" name="zip" maxlength="5"/></td>
                     </tr>
                 </table>
             </fieldset>
@@ -143,7 +143,7 @@
                 </table>
             </fieldset><br/>
             <div id="total">TOTAL: </div><br/>
-            <label id="errorMsg" style="display: none; color: red;"></label>
+            <label id="errorMsg" style="visibility: hidden; color: red;"></label><br/>
             <input type="submit" value="Process Order"/>
 	</form>
 </body>
