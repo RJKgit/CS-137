@@ -1,7 +1,7 @@
 <?php
-$servername = 'sylvester-mccoy-v3.ics.uci.edu';
+$servername = 'localhost';
 $username = 'inf124grp06';
-$password = 'secret';
+$password = '#e4ubreF';
 $dbname = "inf124grp06";
 // Create connection
 $conn = new mysqli($servername, $username,$password, $dbname);
