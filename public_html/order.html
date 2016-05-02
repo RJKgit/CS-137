@@ -1,183 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-	<style type="text/css">
+    <title>Process Order</title>
+    <style type="text/css">
+            input {
+                    padding: 5px;
+                    margin: 5px;
+            }
+            form {
+                    margin-top: 100px;
+                    border: ridge;
+                    border-color: #4CAF50;
+                    padding: 20px;
 
-		input {
-			padding: 5px;
-			margin: 5px;
-		}
-		form {
-			margin-top: 100px;
-			border: ridge;
-			border-color: #4CAF50;
-			padding: 20px;
+            }
+            .nav_bar {
 
-		}
-		.nav_bar {
+                        position:absolute;
+                        z-index:0;
+                        left:0;
+                        top:0;
+                        width:100%
+                }
 
-		            position:absolute;
-		            z-index:0;
-		            left:0;
-		            top:0;
-		            width:100%
-	            }
+                .nav_bar ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    overflow: auto;
+                    background-color: #333;
+                }
 
-	            .nav_bar ul {
-	                list-style-type: none;
-	                margin: 0;
-	                padding: 0;
-	                overflow: auto;
-	                background-color: #333;
-	            }
+                .nav_bar li {
+                    float: left;
+                }
 
-	            .nav_bar li {
-	                float: left;
-	            }
+                .nav_bar li h1 {
+                    color: orange;
+                    padding: 10px;
+                }
 
-	            .nav_bar li h1 {
-	                color: orange;
-	                padding: 10px;
-	            }
+                .nav_bar li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 40px 20px;
+                    text-decoration: none;
+                }
 
-	            .nav_bar li a {
-	                display: block;
-	                color: white;
-	                text-align: center;
-	                padding: 40px 20px;
-	                text-decoration: none;
-	            }
+                 .nav_bar a:hover:not(.active) {
+                    background-color: #111;
+                }
 
-	             .nav_bar a:hover:not(.active) {
-	                background-color: #111;
-	            }
-
-	</style>
-	<script type="text/javascript">
-
-		function getInfo(){
-			var parameters = location.search.substring(1).split("&");
-			var temp = parameters[0].split("=");
-			document.getElementById("productNum").value = unescape(temp[1]);
-
-		}
-
-		function isValidName(s){
-			return /^[A-Za-z\s]+$/.test(s);
-		}
-
-		function isValidEmail(s){
-			var x =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-			return x.test(s);
-		}
-
-		function isValidNumber(s){
-			return /^\d+$/.test(s);
-		}
-
-		function validate(){
-			var counter = true;
-			var firstName = document.emailForm.first.value;
-			if (isValidName(firstName) == false){
-				document.getElementById("1").style.display="inline";
-				counter = false;
-			}
-			var lastName = document.emailForm.last.value;
-			if (isValidName(lastName) == false){
-				document.getElementById("2").style.visibility="visible";
-				counter = false;
-			}
-			var state = document.emailForm.state.value;
-			if (isValidName(state) == false){
-				document.getElementById("3").style.visibility="visible";
-				counter = false;
-			}
-			var city = document.emailForm.city.value;
-			if (isValidName(city) == false){
-				document.getElementById("4").style.visibility="visible";
-				counter = false;
-			}
-			var emailAddress = document.emailForm.email.value;
-			if (isValidEmail(emailAddress) == false){
-				document.getElementById("5").style.visibility="visible";
-				counter = false;
-			}
-			var phoneNumber = document.emailForm.phone.value;
-			if (isValidNumber(phoneNumber) == false){
-				document.getElementById("6").style.visibility="visible";
-				counter = false;
-			}
-
-			var quant = document.emailForm.quantity.value;
-			if (isValidNumber(quant) == false){
-				document.getElementById("7").style.visibility="visible";
-				counter = false;
-			}
-
-			var creditCard = document.emailForm.card.value;
-			if (isValidNumber(creditCard) == false){
-				document.getElementById("8").style.visibility="visible";
-				counter = false;
-			}
-
-			var zipCode = document.emailForm.zip.value;
-			if (isValidNumber(zipCode) == false){
-				document.getElementById("9").style.visibility="visible";
-				counter = false;
-			}
-
-			// var msg = name product and quantity and shipping address and shipping method
-			if (counter == true){
-				var name = firstName + ' ' + lastName + '%0A';
-				var product_info = "PN: " + document.emailForm.productNum.value + ' - Quantity: ' + quant + "%0A";
-				var shipping_info = "Shipping Information: %0A%09" + document.emailForm.street.value + "%0A%09" + city + ', ' + zipCode + "%0A";
-				var conclusion = "%0AThank you for shopping with us! %0A" + "FOOGLE"
-				window.open('mailto:'+emailAddress+'?subject='+'FOOGLE: Order Confirmation!'+'&body=' + name + product_info + shipping_info +
-						conclusion);
-			}
-		}
-	</script>
+    </style>
+    <script src="order.js"></script>
+    <script type = "text/JavaScript" src = "zipCode.js"> </script> 
 </head>
 
 <body>
 	<div class="nav_bar">
 	            <ul>
 	              <li><h1>FOOGLE</h1></li>
-	              <li><a  href="home.htm">Home</a></li>
+	              <li><a  href="home.html">Home</a></li>
 	              <li><a href="products.html">Products</a></li>
 	              <li><a href="about.html">About Us</a></li>
 	            </ul>
        	 </div>
-	<form name="emailForm" action="order.html" method="POST">
-
-		First Name: 		<input type="text" name="first" size="30" maxlength="25"/> <label style="display:none; color:red" id="1">Invalid</label><br/>
-		Last Name: 			<input type="text" name="last" size="30" maxlength="25"/> <label style="visibility: hidden; color:red" id="2">Invalid</label><br/>
-		Email:				<input type = "email" name="email" size="30" maxlength="40"/><label style="visibility: hidden; color:red" id="2">Invalid</label> <br/>
-		Phone Number:		<input type="text" name="phone" size="30" maxlength="10"/> <label style="visibility: hidden; color:red" id="3">Invalid</label><br/>
-		Product Name/Number:<input type = "text" id="productNum" name="product" size="3" maxlength="40"/> <label style="visibility: hidden; color:red" id="4">Invalid</label><br/>
-		<script>
-			getInfo();
-		</script>
-		Quantity:			<input type="text" name="quantity" size="5" maxlength="3"/> <label style="visibility: hidden; color:red" id="4">Invalid</label><br/>
-		Credit Card Number: <input type = "text" name="card" size="30" maxlength="16"/> <label style="visibility: hidden; color:red" id="4">Invalid</label><br/>
-		Shipping Information: <br/>
-		Street Address <input type = "text" name="street" size="30" maxlength="40"/><label style="visibility: hidden; color:red" id="6">Invalid</label> <br/>
-		City <input type = "text" name="city" size="30" maxlength="25"/><label style="visibility: hidden; color:red" id="7">Invalid</label> <br/>
-		State <input type = "text" name="state" size="5" maxlength="2"/> <label style="visibility: hidden; color:red" id="8">Invalid</label><br/>
-		Zip Code <input type = "text" name="zip" size="8" maxlength="5"/> <label style="visibility: hidden; color:red" id="9">Invalid</label><br/>
-		Shipping Method <br/>
-			Overnight<input type = "radio" name="ship" value="overnight"/> $99.99 <br/>
-			2-Day<input type = "radio" name="ship" value="twoday"/> $75.99<br/>
-			Standard 5-7 Business Days<input type = "radio" name="ship" value= "standard" checked/> -Free <br/>
-		<input type="submit" onclick="validate();" value="Submit!"/>
-
+    <form action="home.html" name="emailForm" onsubmit="return(validateForm());" method="POST">
+            <fieldset>
+                <legend>Product Information</legend>
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td></td>    
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td><input type="number" name="quantity" min="0" autofocus/></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Personal Information</legend>
+                <table>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" name="first"/></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" name="last"/></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="email"/></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td><input type="text" name="phone"/></td>
+                    </tr>
+                    <tr>
+                        <td>Credit Card Number</td>
+                        <td><input type="text" name="card" maxLength="16" placeholder="16 digits"/></td>
+                    </tr>
+                    <tr>
+                        <td>Street Address</td>
+                        <td><input type = "text" name="street"/></td>
+                    </tr>
+                     <tr>
+                        <td>Zip Code</td>
+                        <td><input type = "text" name="zip" maxlength="5" onblur="getPlace(this.value)"/></td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td><input type = "text" name="city"/></td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><input type = "text" name="state" maxlength="2" placeholder="eg. 'CA'"/></td>
+                    </tr>
+                   
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Shipping Information</legend>
+                <table>
+                    <tr>
+                        <td>Shipping Method</td>
+                        <td>
+                            <input type="radio" name="ship" value="overnight"/>Overnight ($99.99)<br/>
+                            <input type="radio" name="ship" value="twoday"/>2-Day ($74.99)<br/>
+                            <input type="radio" name="ship" value= "standard" checked/>Standard ($24.99)<br/>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset><br/>
+            <div id="total">TOTAL: </div><br/>
+            <label id="errorMsg" style="visibility: hidden; color: red;"></label><br/>
+            <input type="submit" value="Process Order"/>
 	</form>
-
 </body>
 
 
 </html>
+
 
 
 
