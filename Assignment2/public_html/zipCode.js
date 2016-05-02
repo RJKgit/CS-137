@@ -48,7 +48,7 @@ function getPlace (zip)
   xhr.open ("GET", "getCityState.php?zip=" + zip, true);
   xhr.send ();
   //xhr.open ("POST", "getCityState.php", true);
-  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-  xhr.send ("zip="+zip);  
+  //xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+  //xhr.send ("zip="+zip);  
 }
 
