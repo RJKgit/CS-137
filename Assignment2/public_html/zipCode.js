@@ -3,6 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 //  Ajax JavaScript code for the order.html document
 
 /********************************************************/
@@ -32,21 +38,19 @@ function getPlace (zip)
   // Register the embedded handler function
   // This function will be called when the server returns
   // (the "callback" function)
-  xhr.onreadystatechange = function ()
-  { // 4 means finished, and 200 means okay.
-    if (xhr.readyState == 4 && xhr.status == 200)
-    { // Data should look like "Fairfax, Virginia"
+  xhr.onreadystatechange = function (){ // 4 means finished, and 200 means okay.
+    if (xhr.readyState == 4 && xhr.status == 200){ // Data should look like "Fairfax, Virginia"
       var result = xhr.responseText;
       var place = result.split (', ');
-      //if (document.getElementById ("city").value == "")
+      if (document.getElementById ("city").value == "")
         document.getElementById ("city").value = place[0];
-      //if (document.getElementById ("state").value == "")
+      if (document.getElementById ("state").value == "")
         document.getElementById ("state").value = place[1];
     } 
   }
   // Call the response software component
   xhr.open ("GET", "getCityState.php?zip=" + zip, true);
-  xhr.send ();
+  xhr.send (null);
   //xhr.open ("POST", "getCityState.php", true);
   //xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
   //xhr.send ("zip="+zip);  
