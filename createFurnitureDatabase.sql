@@ -43,3 +43,12 @@ CREATE TABLE `inf124grp06`.`orders` (
     REFERENCES `inf124grp06`.`items` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+CREATE TABLE `inf124grp06`.`zipcode` (
+  `zip` INT(5) NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
+  `state` VARCHAR(45) NOT NULL,
+  `latitude` FLOAT NOT NULL,
+  `longitude` FLOAT NOT NULL,
+  `timezone` INT(2) NOT NULL,
+  `dst` INT(1) NOT NULL,
+  PRIMARY KEY (`zip`));    
