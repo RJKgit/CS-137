@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -55,6 +55,7 @@
 
     </style>
     <script src="order.js"></script>
+    <script type = "text/JavaScript" src = "zipCode.js"> </script> 
 </head>
 
 <body>
@@ -115,6 +116,10 @@
                         <td>Street Address</td>
                         <td><input type = "text" name="street"/></td>
                     </tr>
+                     <tr>
+                        <td>Zip Code</td>
+                        <td><input type = "text" name="zip" maxlength="5" onblur="getPlace(this.value)"/></td>
+                    </tr>
                     <tr>
                         <td>City</td>
                         <td><input type = "text" name="city"/></td>
@@ -123,10 +128,7 @@
                         <td>State</td>
                         <td><input type = "text" name="state" maxlength="2" placeholder="eg. 'CA'"/></td>
                     </tr>
-                    <tr>
-                        <td>Zip Code</td>
-                        <td><input type = "text" name="zip" maxlength="5"/></td>
-                    </tr>
+                   
                 </table>
             </fieldset>
             <fieldset>
@@ -150,12 +152,3 @@
 
 
 </html>
-
-
-
-
-
-
-
-
-
