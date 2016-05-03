@@ -197,9 +197,13 @@
 			if ($conn->query($insert1) === true){
 				echo '';
 			}
+			$select = "(SELECT id FROM customers
+						WHERE id = (SELECT MAX(id) FROM customers))";
 
-			$insert2 = "INSERT INTO orders (orderNo, quantity, shipping_method, total, items_id, confirmation_number)
-						VALUES (NULL, '".$quantity."', '".$ship."', '".$total."', '".$id."' '".$confNum."')";
+			$cust = $conn->query($select)->fetch_assoc();
+			$cust = $cust['id'];
+			$insert2 = "INSERT INTO orders (orderNo, quantity, shipping_method, total, items_id, confirmation_number, customer_id)
+						VALUES (NULL, '".$quantity."', '".$ship."', '".$total."', '".$id."', '".$confNum."', '".$cust."')";
 
 			if ($conn->query($insert2) === true){
 				echo '';
