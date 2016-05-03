@@ -93,39 +93,39 @@
                 <table>
                     <tr>
                         <td>First Name</td>
-                        <td><input type="text" name="first" value="Amit"/></td>
+                        <td><input type="text" name="first"/></td>
                     </tr>
                     <tr>
                         <td>Last Name</td>
-                        <td><input type="text" name="last" value="Dhingra"/></td>
+                        <td><input type="text" name="last"/></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="email" name="email" value="ad@yahoo.com"/></td>
+                        <td><input type="email" name="email"/></td>
                     </tr>
                     <tr>
                         <td>Phone Number</td>
-                        <td><input type="text" name="phone" value="9493885267"/></td>
+                        <td><input type="text" name="phone"/></td>
                     </tr>
                     <tr>
                         <td>Credit Card Number</td>
-                        <td><input type="text" name="card" value="1234567891234567" maxLength="16" placeholder="16 digits"/></td>
+                        <td><input type="text" name="card" maxLength="16" placeholder="16 digits"/></td>
                     </tr>
                     <tr>
                         <td>Street Address</td>
-                        <td><input type = "text" name="street" value="1010 king"/></td>
-                    </tr>
-                    <tr>
-                        <td>City</td>
-                        <td><input type = "text" name="city" value="Alameda"/></td>
-                    </tr>
-                    <tr>
-                        <td>State</td>
-                        <td><input type = "text" name="state" value="CA" maxlength="2" placeholder="eg. 'CA'"/></td>
+                        <td><input type = "text" name="street" /></td>
                     </tr>
                     <tr>
                         <td>Zip Code</td>
-                        <td><input type = "text" name="zip" value="94501" maxlength="5"/></td>
+                        <td><input  type = "text" name="zip" maxlength="5" onblur="getPlace(this.value)"/></td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td><input id="city" type = "text" name="city"/></td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><input id="state" type = "text" name="state" maxlength="2" placeholder="eg. 'CA'"/></td>
                     </tr>
                 </table>
             </fieldset>
@@ -142,9 +142,12 @@
                     </tr>
                 </table>
             </fieldset><br/>
-            <div id="total">TOTAL: </div><br/>
+            <div id="subtotal">Subtotal: </div><br/>
+            <div id="tax">Tax: </div><br/>
+            <div id="total">Total: </div><br/>
             <label id="errorMsg" style="visibility: hidden; color: red;"></label><br/>
             <input type="submit" value="Process Order"/>
+            <input type="reset" value="Clear Order Form"/>
             <?php
                 $name = $_GET['product_name'];
                 $name = str_replace(' ', '_', $name);
