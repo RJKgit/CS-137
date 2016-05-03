@@ -1,5 +1,5 @@
 <?php
-$servername = 'localhost';
+$servername = 'sylvester-mccoy-v3.ics.uci.edu';
 $username = 'inf124grp06';
 $password = '#e4ubreF';
 $dbname = "inf124grp06";
