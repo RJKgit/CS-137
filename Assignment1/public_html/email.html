@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+	<script type="text/javascript">
+		function isValidName(s){
+			return /^[A-Za-z\s]+$/.test(s);
+		}
+		function isValidEmail(s){
+			var x =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			return x.test(s);
+		}
+		function validate(){
+			var counter = true;
+			var n = document.emailForm.person.value;
+			if (isValidName(n) == false){
+				alert("Invalid name, must be only characters.");
+				counter = false;
+			}
+			var em = document.emailForm.email.value;
+			if (isValidEmail(em) == false){
+				alert("Invalid email address");
+				counter = false;
+			}
+			var sub = document.emailForm.subject.value;
+			var msg = document.emailForm.message.value;
+
+
+			if (counter == true){
+				window.open('mailto:'+em+'?subject='+sub+'&body='+msg);
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<form name="emailForm" onSubmit="validate();" method="post">
+		<table>
+			<tr>
+				<td>Name:</td>  
+				<td><input type="text" name="person" size="30" maxlength="25"/> </td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input type = "email" name="email" size="30" maxlength="40"/></td>
+			</tr>
+			<tr>
+				<td>Subject:</td>
+				<td><input type="text" name="subject" size="30" maxlength="40"/></td>
+			</tr>
+			<tr>
+				<td>Message:</td>
+				<td><textarea name="message" rows="7" cols="30">Type your message here...</textarea></td>
+			</tr>
+			<tr>
+				<td></td> <!-- Empty column --> 
+				<td><input type="submit" value="Send!"/></td>
+			</tr>
+		</table>
+
+	</form>
+
+</body>
+
+
+</html>
+
+
+
+
+
+

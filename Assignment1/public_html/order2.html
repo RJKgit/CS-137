@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+	<script type="text/javascript">
+		function isValidName(s){
+			return /^[A-Za-z\s]+$/.test(s);
+		}
+
+		function isValidEmail(s){
+			var x =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			return x.test(s);
+		}
+
+		function isValidNumber(s){
+			return /^\d+$/.test(s);
+		}
+
+		function validate(){
+			var counter = true;
+			var firstName = document.emailForm.first.value;
+			if (isValidName(firstName) == false){
+				alert("Invalid first name, must be only characters.");
+				counter = false;
+			}
+			var lastName = document.emailForm.last.value;
+			if (isValidName(lastName) == false){
+				alert("Invalid last name, must be only characters.");
+				counter = false;
+			}
+			var state = document.emailForm.state.value;
+			if (isValidName(state) == false){
+				alert("Invalid State, must be only 2 character initials.");
+				counter = false;
+			}
+			var city = document.emailForm.city.value;
+			if (isValidName(city) == false){
+				alert("Invalid City, must be only character.");
+				counter = false;
+			}
+			var emailAddress = document.emailForm.email.value;
+			if (isValidEmail(emailAddress) == false){
+				alert("Invalid email address");
+				counter = false;
+			}
+			var phoneNumber = document.emailForm.phone.value;
+			if (isValidNumber(phoneNumber) == false){
+				alert("Invalid phone number");
+				counter = false;
+			}
+
+			var quant = document.emailForm.quantity.value;
+			if (isValidNumber(quant) == false){
+				alert("Invalid Quantity");
+				counter = false;
+			}
+
+			var creditCard = document.emailForm.card.value;
+			if (isValidNumber(creditCard) == false){
+				alert("Invalid Credit Card Number");
+				counter = false;
+			}
+
+			var zipCode = document.emailForm.zip.value;
+			if (isValidNumber(zipCode) == false){
+				alert("Invalid Zip Code");
+				counter = false;
+			}
+
+			// var msg = name product and quantity and shipping address and shipping method
+			if (counter == true){
+				window.open('mailto:'+emailAddress+'?subject='+'FOOGLE: Order Confirmation!'+'&body=');
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<form name="emailForm" onSubmit="validate();" method="post"> 
+		First Name: 		<input type="text" name="first" size="30" maxlength="25"/> <br/>
+		Last Name: 			<input type="text" name="last" size="30" maxlength="25"/> <br/>
+		Email:				<input type = "email" name="email" size="30" maxlength="40"/> <br/>
+		Phone Number:		<input type="text" name="phone" size="30" maxlength="10"/> <br/>
+		Product Name/Number:<input type = "text" name="product" size="30" maxlength="40"/> <br/>
+		Quantity:			<input type="text" name="quantity" size="5" maxlength="3"/> <br/>
+		Credit Card Number: <input type = "text" name="card" size="30" maxlength="16"/> <br/>
+		Shipping Address: <br/>
+		Street Address <input type = "text" name="street" size="30" maxlength="40"/> <br/>
+		City <input type = "text" name="city" size="30" maxlength="25"/> <br/>
+		State <input type = "text" name="state" size="5" maxlength="2"/> <br/>
+		Zip Code <input type = "text" name="zip" size="8" maxlength="5"/> <br/>
+		Shipping Method <br/>
+			Overnight<input type = "radio" name="ship" value="overnight"/>-$99.99 <br/>
+			2-Day<input type = "radio" name="ship" value="twoday"/> -$75.99<br/>
+			Standard 5-7 Business Days<input type = "radio" name="ship" value= "standard" checked/> -Free <br/>
+		<input type="submit" value="Submit!"/>
+
+	</form>
+
+</body>
+
+
+</html>
+
+
+
+
+
+
